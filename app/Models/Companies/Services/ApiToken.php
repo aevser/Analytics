@@ -15,7 +15,9 @@ class ApiToken extends Model
         'account_id',
         'api_service_id',
         'api_type_id',
-        'api_token'
+        'api_token',
+        'expires_at',
+        'active'
     ];
 
     public function account(): BelongsTo

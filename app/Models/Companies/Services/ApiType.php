@@ -11,7 +11,8 @@ class ApiType extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'description'
     ];
 
     public function tokens(): HasMany

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->foreignIdFor(\App\Models\Companies\Services\ApiType::class, 'api_type_id')
                 ->constrained()->onDelete('cascade');
             $table->string('api_token')->unique();
+            $table->timestamp('expires_at');
+            $table->boolean('active');
             $table->timestamps();
 
             // Индексация

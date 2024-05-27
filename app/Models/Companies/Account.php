@@ -7,6 +7,7 @@ use App\Models\Income;
 use App\Models\Order;
 use App\Models\Sale;
 use App\Models\Stock;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,7 +19,11 @@ class Account extends Model
 
     protected $fillable = [
         'cabinet_id',
-        'name'
+        'user_id',
+        'name',
+        'phone',
+        'email',
+        'last_login_at'
     ];
 
     public function insomes(): HasMany
@@ -44,6 +49,11 @@ class Account extends Model
     public function cabinet(): BelongsTo
     {
         return $this->belongsTo(Cabinet::class);
+    }
+
+    public function users(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function tokens(): HasMany

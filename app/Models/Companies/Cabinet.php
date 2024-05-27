@@ -13,7 +13,8 @@ class Cabinet extends Model
 
     protected $fillable = [
         'company_id',
-        'name'
+        'name',
+        'active'
     ];
 
     public function company(): BelongsTo

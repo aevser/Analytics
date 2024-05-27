@@ -14,13 +14,21 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Companies\Cabinet::class, 'cabinet_id')
-                ->constrained()->onDelete('cascade');
+                ->constrained()
+                ->onDelete('cascade');
+            $table->foreignIdFor(\App\Models\User::class, 'user_id')
+                ->constrained()
+                ->onDelete('cascade');
             $table->string('name');
+            $table->string('phone');
+            $table->string('email');
+            $table->timestamp('last_login_at');
             $table->timestamps();
 
             // Индексация
             $table->index([
-                'cabinet_id'
+                'cabinet_id',
+                'user_id'
             ]);
         });
     }
