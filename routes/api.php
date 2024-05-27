@@ -29,3 +29,8 @@ Route::post('sales/{account_id}', [Api\SaleController::class, 'getSale'])
 // Склады
 Route::post('stocks/{account_id}', [Api\StockController::class, 'getStock'])
     ->name('stocks');
+
+// Пользователи
+Route::apiResource('users', Api\UserController::class)->only([
+    'index', 'show', 'store', 'update', 'destroy'
+]);
