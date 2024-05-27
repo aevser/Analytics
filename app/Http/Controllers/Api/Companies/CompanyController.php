@@ -33,7 +33,7 @@ class CompanyController extends Controller
             website_url: $request->website_url
         );
 
-        return response()->json(['success' => 'Компания успешно добавлена'], Response::HTTP_CREATED);
+        return response()->json('Компания создана', Response::HTTP_CREATED);
     }
 
     public function update(Requests\Update $request, $company)
@@ -47,13 +47,13 @@ class CompanyController extends Controller
             website_url: $request->website_url
         );
 
-        return response()->json(['success' => 'Данные компании успешно обновлены'], Response::HTTP_OK);
+        return response()->json('Данные компании обновлены', Response::HTTP_OK);
     }
 
     public function destroy($company)
     {
         $company = Jobs\Delete::dispatchSync($company);
 
-        return response()->json(['success' => 'Компания успешно удалена'], Response::HTTP_OK);
+        return response()->json('Компания удалена', Response::HTTP_OK);
     }
 }

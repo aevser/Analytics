@@ -13,9 +13,9 @@ class StockController extends Controller
         $stock = Jobs\GetStock::dispatchSync($account_id);
 
         if ($stock === 'success') {
-            return response()->json(['success' => 'Данные получены успешно'], Response::HTTP_CREATED);
+            return response()->json('Данные получены успешно', Response::HTTP_CREATED);
         }
 
-        return response()->json(['error' => 'Данные не были получены'], Response::HTTP_NOT_FOUND);
+        return response()->json('Не удалось получить данные', Response::HTTP_NOT_FOUND);
     }
 }

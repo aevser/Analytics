@@ -34,7 +34,7 @@ class AccountController extends Controller
             email: $request->email,
         );
 
-        return response()->json(['success' => 'Аккаунт успешно создан'], Response::HTTP_CREATED);
+        return response()->json('Аккаунт создан', Response::HTTP_CREATED);
     }
 
     public function update(Requests\Update $request, $account)
@@ -48,13 +48,13 @@ class AccountController extends Controller
             email: $request->email,
         );
 
-        return response()->json(['success' => 'Данные аккаунта успешно обновлены'], Response::HTTP_OK);
+        return response()->json('Данные аккаунта обновлены', Response::HTTP_OK);
     }
 
     public function destroy($account)
     {
         $account = Jobs\Delete::dispatchSync($account);
 
-        return response()->json(['success' => 'Аккаунт успешно удален'], Response::HTTP_OK);
+        return response()->json('Аккаунт удален', Response::HTTP_OK);
     }
 }

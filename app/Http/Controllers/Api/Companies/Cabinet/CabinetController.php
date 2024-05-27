@@ -31,7 +31,7 @@ class CabinetController extends Controller
             active: $request->active
         );
 
-        return response()->json(['success' => 'Кабинет успешно добавлен'], Response::HTTP_CREATED);
+        return response()->json('Кабинет создан', Response::HTTP_CREATED);
     }
 
     public function update(Requests\Update $request, $cabinet)
@@ -43,13 +43,13 @@ class CabinetController extends Controller
             active: $request->active
         );
 
-        return response()->json(['success' => 'Данные кабинета успешно обновлены'], Response::HTTP_OK);
+        return response()->json('Данные кабинета обновлены', Response::HTTP_OK);
     }
 
     public function destroy($cabinet)
     {
         $cabinet = Jobs\Delete::dispatchSync($cabinet);
 
-        return response()->json(['success' => 'Кабинет успешно удален'], Response::HTTP_OK);
+        return response()->json('Кабинет удален', Response::HTTP_OK);
     }
 }

@@ -31,7 +31,7 @@ class UserController extends Controller
             password: $request->password,
         );
 
-        return response()->json(['success' => 'Пользователь успешно добавлен'], Response::HTTP_CREATED);
+        return response()->json('Пользователь создан', Response::HTTP_CREATED);
     }
 
     public function update(Requests\Update $request, $user)
@@ -43,13 +43,13 @@ class UserController extends Controller
             password: $request->password
         );
 
-        return response()->json(['success' => 'Данные пользователя успешно обновлены'], Response::HTTP_OK);
+        return response()->json('Данные пользователя обновлены', Response::HTTP_OK);
     }
 
     public function destroy($user)
     {
         $user = Jobs\Delete::dispatchSync($user);
 
-        return response()->json(['success' => 'Пользователь успешно удален'], Response::HTTP_OK);
+        return response()->json('Пользователь удален', Response::HTTP_OK);
     }
 }
