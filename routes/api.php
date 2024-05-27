@@ -35,14 +35,23 @@ Route::apiResource('users', Api\UserController::class)->only([
     'index', 'show', 'store', 'update', 'destroy'
 ]);
 
+// Компании
 Route::apiResource('companies', Api\Companies\CompanyController::class)->only([
     'index', 'show', 'store', 'update', 'destroy'
 ]);
 
+// Кабинеты
 Route::apiResource('cabinets', Api\Companies\Cabinet\CabinetController::class)->only([
     'index', 'show', 'store', 'update', 'destroy'
 ]);
 
+// Аккаунты
 Route::apiResource('accounts', Api\Companies\Cabinet\Account\AccountController::class)->only([
     'index', 'show', 'store', 'update', 'destroy'
 ]);
+
+Route::post('/login', [Api\AuthController::class, 'login'])
+    ->name('user.login');
+
+Route::post('/logout', [Api\AuthController::class, 'logout'])
+    ->name('user.logout');
