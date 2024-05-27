@@ -34,3 +34,7 @@ Route::post('stocks/{account_id}', [Api\StockController::class, 'getStock'])
 Route::apiResource('users', Api\UserController::class)->only([
     'index', 'show', 'store', 'update', 'destroy'
 ]);
+
+Route::apiResource('companies', Api\Companies\CompanyController::class)->only([
+    'index', 'show', 'store', 'update', 'destroy'
+]);
