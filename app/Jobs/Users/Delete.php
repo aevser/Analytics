@@ -25,7 +25,7 @@ class Delete
      */
     public function handle()
     {
-        $user = User::query()->delete($this->user_id);
+        $user = User::destroy($this->user_id);
 
         return $user;
     }

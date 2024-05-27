@@ -13,7 +13,7 @@ class Show
      * Create a new job instance.
      */
     public function __construct(
-        public $user_id
+        public int $user_id
     )
 
     {
