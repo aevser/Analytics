@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('email');
-            $table->timestamp('last_login_at');
+            $table->timestamp('last_login_at')->nullable();
             $table->timestamps();
 
             // Индексация

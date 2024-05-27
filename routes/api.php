@@ -42,3 +42,7 @@ Route::apiResource('companies', Api\Companies\CompanyController::class)->only([
 Route::apiResource('cabinets', Api\Companies\Cabinet\CabinetController::class)->only([
     'index', 'show', 'store', 'update', 'destroy'
 ]);
+
+Route::apiResource('accounts', Api\Companies\Cabinet\Account\AccountController::class)->only([
+    'index', 'show', 'store', 'update', 'destroy'
+]);
